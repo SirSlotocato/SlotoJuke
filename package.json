@@ -1,0 +1,25 @@
+{
+  "name": "slotojuke",
+  "version": "0.0.0",
+  "description": "Discord music bot made by caneslotocato",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirSlotocato/SlotoJuke.git"
+  },
+  "author": "caneslotocato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SirSlotocato/SlotoJuke/issues"
+  },
+  "homepage": "https://github.com/SirSlotocato/SlotoJuke#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "esm": "^3.2.25",
+    "ffmpeg-binaries": "^4.0.0",
+    "opusscript": "0.0.7"
+  }
+}
