@@ -1,17 +1,17 @@
-var queues = [];
-
-
+var queues = {};        
+/*
+queues is an array of object that contain: the queue(an array) and the actual playing index(of the array).
+*/
 export default function addSong(message, client){
-    throw 'Not Yet Implemented';
+    //throw 'Not Yet Implemented';
+    let actualQueue;
     if(message){
         if(message.member.voiceChannel){
-            if(queues.length === 0){
-                for(var queue in queues){
-                    
-                }
+            if(queues[message.guild.id]){
+
             }   
             else{
-
+                queues.id
             } 
         }
     }
