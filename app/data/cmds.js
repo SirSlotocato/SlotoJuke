@@ -45,7 +45,8 @@ export class cmds{
             pause: ['pause'],
             stop: ['stop'],
             join: ['join', 'j'],
-            leave: ['leave', 'l']
+            leave: ['leave', 'l'],
+            play_song: ['playn', 'pn']
         };
     }
 

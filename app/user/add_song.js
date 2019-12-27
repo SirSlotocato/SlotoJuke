@@ -11,7 +11,11 @@ export default function addSong(message, client){
 
             }   
             else{
-                queues.id
+                queues[message.guild.id] = {
+                    urls: [],
+                    actuallyPlaying: 0
+                };
+                
             } 
         }
     }
