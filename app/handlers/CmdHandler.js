@@ -2,13 +2,14 @@ import { cmds } from "../data/cmds";
 import join from "../user/join";
 import leave from "../user/leave";
 import add_song from "../user/add_song";
-import play_song from "../user/play_song";
+import skip from "../user/skip";
+//import play_song from "../user/play_song";
 
 let modules = {
     join: join,
     leave: leave,
     add_song: add_song,
-    play_song: play_song
+    skip: skip
 }
 
 export class CmdHandler{

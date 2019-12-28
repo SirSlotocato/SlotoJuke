@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.argv[2])
 .catch((err) => {if(err) console.log('LOGIN ERROR. REASON: ' + err);});
-import { CmdHandler } from './app/scripts/CmdHandler';
+import { CmdHandler } from './app/handlers/CmdHandler';
 
 client.once('ready', () => {
 
