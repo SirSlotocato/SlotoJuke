@@ -25,7 +25,7 @@ client.once('ready', () => {
         if (message.member.voiceChannel) {
           CmdHandler.CheckPrefix(message, client);
         } else {
-          message.reply('You need to join a voice channel first!');
+          //message.reply('You need to join a voice channel first!');
         }
       
   });

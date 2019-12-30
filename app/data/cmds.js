@@ -37,7 +37,7 @@ export class cmds{
     static GetUsers(){
         console.log('get users');
         return {
-            add_song: ['play', 'p'],
+            add_song: ['play', 'p', 'PORCODIOCOMECAZZOTIPERMETTIANONMETTERESTACANZONE'],
             remove_song: ['remove', 'r'],
             add_next: ['play-after', 'pf', 'p-f'],
             skip: ['skip', 's'],

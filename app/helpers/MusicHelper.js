@@ -3,26 +3,27 @@ import ytdl from "ytdl-core";
 
 export default class MusicHelper{
 
-    static play(guild, song) {
+    static play(message, guild, song) {
         const serverQueue = queue.get(guild.id);
         if(!serverQueue)
-            return;
-    
+        return;
+        
         if (!song) {
             serverQueue.voiceChannel.leave();
             queue.delete(guild.id);
             return;
         }
         const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-            .on('end', () => {
-                console.log('Music ended!');
-                serverQueue.songs.shift();
-                this.play(guild, serverQueue.songs[0]);
-            })
-            .on('error', error => {
-                console.error(error);
-            });
+        .on('end', () => {
+            console.log('Music ended!');
+            serverQueue.songs.shift();
+            this.play(message, guild, serverQueue.songs[0]);
+        })
+        .on('error', error => {
+            console.error(error);
+        });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+        message.channel.send('```' + 'now playing: ' + song.title + '```')
     }
 
     static skip(message, serverQueue) {

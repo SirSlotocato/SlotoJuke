@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\server.js",
-            "args": ["NjU3NTU3NDU1MzQwODMwNzIw.XgCnXw.vxub3pjHEC0gjJTAecH_xQhpPQI"]
+            "args": ["NjU3NTU3NDU1MzQwODMwNzIw.XgCnXw.vxub3pjHEC0gjJTAecH_xQhpPQI", "AIzaSyD3yT3MXYztcj6vUlN7JnVMFzrv2Z6NGUk"]
         }
     ]
 }
