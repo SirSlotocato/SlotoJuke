@@ -66,6 +66,7 @@ export default async function addSong(message, client) {
                         
                         queueContruct.songs.push(song);
                         message.channel.send('```' + song.title + ' added. song in queue: ' + queueContruct.songs.length + '```');
+                        console.log("imma here");
                         return voiceChannel.join();
                     }
                     else {
