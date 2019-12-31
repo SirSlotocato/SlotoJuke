@@ -15,8 +15,10 @@ export default class MusicHelper{
         }
         const dispatcher = serverQueue.connection.playStream(ytdl(song.url));
         dispatcher
-        .on('start', speaking => {
+        .on('start', () => {
             console.log('dispatcher is speaking? dunno');
+            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+            message.channel.send('```' + 'now playing: ' + song.title + '```');        
         })
         .on('end', reason => {
             console.log('Music ended! reason: ' + reason);
@@ -32,10 +34,6 @@ export default class MusicHelper{
         .on('debug', info => {
             console.log('debug info: ' + info);
         });
-        dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-        message.channel.send('```' + 'now playing: ' + song.title + '```');
-        dispatcher.resume();
-        
     }
 
     static skip(message, serverQueue) {
