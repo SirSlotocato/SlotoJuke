@@ -72,6 +72,7 @@ export default async function addSong(message, client) {
                     else {
                         serverQueue.songs.push(song);
                         console.log(serverQueue.songs);
+                        console.log("imma here 2222");
                         message.channel.send('```' + song.title + ' added. song in queue: ' + queueContruct.songs.length + '```');
                         return 'stop';
                     }
