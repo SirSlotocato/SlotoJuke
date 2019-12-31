@@ -21,9 +21,16 @@ export default class MusicHelper{
         })
         .on('error', error => {
             console.error(error);
+        })
+        .on('speaking', diocane => {
+            console.log(diocane);
+        })
+        .catch(err => {
+            console.log(err);
         });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-        message.channel.send('```' + 'now playing: ' + song.title + '```')
+        message.channel.send('```' + 'now playing: ' + song.title + '```');
+        
     }
 
     static skip(message, serverQueue) {
