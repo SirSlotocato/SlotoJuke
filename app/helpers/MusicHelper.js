@@ -18,8 +18,8 @@ export default class MusicHelper{
         .on('start', speaking => {
             console.log('dispatcher is speaking? dunno');
         })
-        .on('end', () => {
-            console.log('Music ended!');
+        .on('end', reason => {
+            console.log('Music ended! reason: ' + reason);
             serverQueue.songs.shift();
             this.play(message, guild, serverQueue.songs[0]);
         })
