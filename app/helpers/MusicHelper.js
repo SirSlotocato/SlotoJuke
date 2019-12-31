@@ -32,6 +32,7 @@ export default class MusicHelper{
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         message.channel.send('```' + 'now playing: ' + song.title + '```');
         console.log('song:' + song.url);
+        dispatcher.resume();
         
     }
 
