@@ -13,7 +13,7 @@ export default class MusicHelper{
             queue.delete(guild.id);
             return;
         }
-        const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+        const dispatcher = serverQueue.connection.playStream(ytdl(song.url.trim()))
         .on('end', () => {
             console.log('Music ended!');
             serverQueue.songs.shift();
@@ -27,6 +27,7 @@ export default class MusicHelper{
         });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         message.channel.send('```' + 'now playing: ' + song.title + '```');
+        console.log('song:' + song.url);
         
     }
 
