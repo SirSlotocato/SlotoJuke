@@ -24,9 +24,6 @@ export default class MusicHelper{
         })
         .on('speaking', diocane => {
             console.log(diocane);
-        })
-        .catch(err => {
-            console.log(err);
         });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         message.channel.send('```' + 'now playing: ' + song.title + '```');
