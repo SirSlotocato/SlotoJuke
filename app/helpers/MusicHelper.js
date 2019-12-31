@@ -13,7 +13,7 @@ export default class MusicHelper{
             queue.delete(guild.id);
             return;
         }
-        const dispatcher = serverQueue.connection.playStream(ytdl(song.url.trim()));
+        const dispatcher = serverQueue.connection.playStream(ytdl(song.url));
         dispatcher
         .on('start', speaking => {
             console.log('dispatcher is speaking? dunno');
@@ -27,11 +27,13 @@ export default class MusicHelper{
             console.error(error);
         })
         .on('speaking', diocane => {
-            console.log('dispatcher is speaking? ' + diocane);
+            console.log('dispatcher is diocane? ' + diocane);
+        })
+        .on('debug', info => {
+            console.log('debug info: ' + info);
         });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         message.channel.send('```' + 'now playing: ' + song.title + '```');
-        console.log('song:' + song.url);
         dispatcher.resume();
         
     }
