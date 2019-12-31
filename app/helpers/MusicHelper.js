@@ -16,7 +16,7 @@ export default class MusicHelper{
         const dispatcher = serverQueue.connection.playStream(ytdl(song.url.trim()));
         dispatcher
         .on('start', speaking => {
-            console.log('dispatcher is speaking? ' + speaking);
+            console.log('dispatcher is speaking? dunno');
         })
         .on('end', () => {
             console.log('Music ended!');
@@ -27,7 +27,7 @@ export default class MusicHelper{
             console.error(error);
         })
         .on('speaking', diocane => {
-            console.log(diocane);
+            console.log('dispatcher is speaking? ' + diocane);
         });
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
         message.channel.send('```' + 'now playing: ' + song.title + '```');
