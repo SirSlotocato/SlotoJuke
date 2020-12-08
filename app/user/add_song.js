@@ -10,11 +10,12 @@ const ytAPIKEY = process.argv[3];
 
 export default async function addSong(message, client) {
   if (message) {
-    if (message.member.voiceChannel) {
+    if (message.member.voice.channelID) {
 
       const args = message.content.split(' ');
 
-      const voiceChannel = message.member.voiceChannel;
+//      const voiceChannel = message.member.voiceChannel;
+      const voiceChannel = await client.channels.fetch(message.member.voice.channelID);
       if (!voiceChannel) return message.channel.send('You need to be in a voice channel to play music!');
       const permissions = voiceChannel.permissionsFor(message.client.user);
       if (!permissions.has('CONNECT') || !permissions.has('SPEAK')) {

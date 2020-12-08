@@ -13,7 +13,7 @@ export default class MusicHelper{
             queue.delete(guild.id);
             return;
         }
-        const dispatcher = serverQueue.connection.playStream(ytdl(song.url));
+        const dispatcher = serverQueue.connection.play(ytdl(song.url));
         dispatcher
         .on('start', () => {
             console.log('dispatcher is speaking? dunno');
