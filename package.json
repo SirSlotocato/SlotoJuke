@@ -22,7 +22,7 @@
     "esm": "^3.2.25",
     "youtube-search": "^1.1.4",
     "youtube-v3-api": "^1.1.1",
-    "ytdl": "^1.1.0",
-    "ytdl-core": "^1.0.5"
+    "ytdl": "^1.4.1",
+    "ytdl-core": "^1.0.9"
   }
 }
