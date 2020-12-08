@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/SirSlotocato/SlotoJuke#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.5.1",
     "esm": "^3.2.25",
     "youtube-search": "^1.1.4",
     "youtube-v3-api": "^1.1.1",
