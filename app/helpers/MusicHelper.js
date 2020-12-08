@@ -28,8 +28,8 @@ export default class MusicHelper{
         .on('error', error => {
             console.error(error);
         })
-        .on('speaking', diocane => {
-            console.log('dispatcher is diocane? ' + diocane);
+        .on('speaking', speaking => {
+            console.log('dispatcher is speaking? ' + speaking);
         })
         .on('debug', info => {
             console.log('debug info: ' + info);
