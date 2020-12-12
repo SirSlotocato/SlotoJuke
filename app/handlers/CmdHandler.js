@@ -3,8 +3,14 @@ import join from "../user/join";
 import leave from "../user/leave";
 import add_song from "../user/add_song";
 import skip from "../user/skip";
+import debugFactory from "debug";
+
+const debug = debugFactory('sj:handler:cmd');
+
 //import play_song from "../user/play_song";
 
+
+//TODO riscrivi sta merda in modo che se li estragga da solo plz
 let modules = {
     join: join,
     leave: leave,
@@ -16,13 +22,13 @@ export class CmdHandler{
 
     static CheckPrefix(message, client){
         try {
-            console.log('check prefixes');
+            debug('check prefixes');
             if(message.content[0] == cmds.GetPrefixes().normal_prefix){
-                console.log('execute normal cmd');
+                debug('execute normal cmd');
                 this.CheckUserCmd(message, client);
             }
             else if(message.content[0] == cmds.GetPrefixes().admin_prefix){
-                console.log('execute admin cmd');
+                debug('execute admin cmd');
                 this.CheckAdminCmd(message);
             }
         } catch (err) {

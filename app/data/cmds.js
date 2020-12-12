@@ -1,3 +1,6 @@
+import debugFactory from "debug";
+
+const debug = debugFactory('sj:data:cmd');
 
 /**
  * A class containing all the cmds data.
@@ -5,7 +8,7 @@
 export class cmds{
     
     static GetExactUserCommand(toCheck){
-        console.log('get exact user command');
+        debug('get exact user command');
         let cmds = this.GetUsers();
         let toRet;
         let ar = Object.keys(cmds).map(el => {
@@ -16,18 +19,16 @@ export class cmds{
                         cmd: cmd
                     };
                     toRet = toReturn;
-                    console.log('toReturn: ' + JSON.stringify(toReturn));
                     return toReturn;
                 }
             });
         });
-        console.log(toRet)
         return toRet;
 
     }
 
     static GetPrefixes(){
-        console.log('get prefixes');
+        debug('get prefixes');
         return {
             normal_prefix: "?",
             admin_prefix: "/"
@@ -35,7 +36,7 @@ export class cmds{
     }
 
     static GetUsers(){
-        console.log('get users');
+        debug('get users');
         return {
             add_song: ['play', 'p', 'PORCODIOCOMECAZZOTIPERMETTIANONMETTERESTACANZONE'],
             remove_song: ['remove', 'r'],
