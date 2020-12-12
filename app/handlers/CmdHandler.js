@@ -3,6 +3,8 @@ import join from "../user/join";
 import leave from "../user/leave";
 import add_song from "../user/add_song";
 import skip from "../user/skip";
+import roll_dice from "../user/roll_dice";
+
 import debugFactory from "debug";
 
 const debug = debugFactory('sj:handler:cmd');
@@ -15,7 +17,8 @@ let modules = {
     join: join,
     leave: leave,
     add_song: add_song,
-    skip: skip
+    skip: skip,
+    roll_dice: roll_dice
 }
 
 export class CmdHandler{
