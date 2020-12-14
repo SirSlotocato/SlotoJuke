@@ -42,23 +42,23 @@ export default async function addSong(message, client) {
             song.link = song.video_url;
           } else {
             let songs = await ytapi(CmdHelper.DeleteCmd(message.content), {
-              maxResults: 1,
+              maxResults: 5,
               key: ytAPIKEY,
               videoCategoryId: 10,
               type: 'video'
             });
-            song = songs.results[0];
+            song = songs.results;
           }
       
           let serverQueue = queue.get(message.guild.id);
           let connection;
           if (!serverQueue) {
             queueContruct.songs.push(song);
-            message.channel.send('```' + song.title + ' added. song in queue: ' + queueContruct.songs.length + '```');
+            message.channel.send('```' + song[0].title + ' added. song in queue: ' + queueContruct.songs.length + '```');
             connection = await voiceChannel.join();
           } else {
             queueContruct = queue.addSongToQueue(song, message.guild.id);
-            message.channel.send('```' + song.title + ' added. song in queue: ' + queueContruct.songs.length + '```');
+            message.channel.send('```' + song[0].title + ' added. song in queue: ' + queueContruct.songs.length + '```');
             return 'stop';
           }
           

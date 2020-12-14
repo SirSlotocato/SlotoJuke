@@ -11,32 +11,41 @@ export default class MusicHelper {
     if (!serverQueue)
       return;
     
-    if (!song) {
+    if (!song || song.length <= 0) {
       message.channel.send('```' + 'No more songs to play, leaving the channel' + '```');
       debug('no song');
       serverQueue.voiceChannel.leave();
       queue.delete(guild.id);
       return;
     }
-    let dispatcher = await serverQueue.connection.play(await ytdl(song.link));
-    dispatcher
-      .on('start', () => {
-        debug('start dispatcher');
-        dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-        message.channel.send('```' + 'now playing: ' + song.title + '```');
-      })
-      .on('finish', () => {
-        debug('music finished');
-        skipToNextSong(message);
-      })
-      .on('error', error => {
-        if (nTry <= 10)
-          MusicHelper.play(message, guild, song, nTry++)
-        console.error(error);
-      })
-      .on('debug', info => {
-        debug('debug info: ' + info);
-      });
+    
+    for(let i = 0; i < song.length; i++){
+      try {
+        let dispatcher = await serverQueue.connection.play(await ytdl(song[i].link));
+        await dispatcher
+          .on('start', () => {
+            debug('start dispatcher');
+            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+            message.channel.send('```' + 'now playing: ' + song[i].title + '```');
+          })
+          .on('finish', () => {
+            debug('music finished');
+            skipToNextSong(message);
+            i = song.length + 1;
+          })
+          .on('error', error => {
+            if (nTry <= 10)
+              MusicHelper.play(message, guild, song, nTry++)
+            console.error(error);
+          })
+          .on('debug', info => {
+            debug('debug info: ' + info);
+          });
+      } catch(e) {
+        console.error(e);
+      }
+    }
+    
   }
   
   static skip(message, serverQueue) {
