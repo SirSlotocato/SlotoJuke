@@ -26,12 +26,7 @@ client.on('message', async message => {
       message.reply("I Can't join the channel because this is not a guild, sorry :/");
       return;
     }
-    // Only try to join the sender's voice channel if they are in one themselves
-    if (message.member.voice.channelID) {
-      CmdHandler.CheckPrefix(message, client);
-    } else {
-      message.reply('You need to join a voice channel first!');
-    }
+    CmdHandler.CheckPrefix(message, client);
   } catch (e) {
     console.error(e);
   }

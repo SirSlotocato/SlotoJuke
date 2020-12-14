@@ -72,6 +72,7 @@ export default async function addSong(message, client) {
         }
       }
   } else {
+    message.reply('Join a voice channel first');
     throw 'No msg';
   }
 }
