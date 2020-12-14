@@ -38,8 +38,9 @@ export default async function addSong(message, client) {
       
           let song;
           if (UrlHelper.isUrl(args[1])) {
-            song = (await ytdl.getInfo(args[1])).videoDetails;
-            song.link = song.video_url;
+            let resSong = (await ytdl.getInfo(args[1])).videoDetails;
+            song = [{link: resSong.video_url, title: resSong.title}];
+            song[0].link = resSong.video_url;
           } else {
             let songs = await ytapi(CmdHelper.DeleteCmd(message.content), {
               maxResults: 5,
