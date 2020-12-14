@@ -89,5 +89,7 @@ function RndInt(min, max, rndGen) {
 function EVAL(toEval){
   if(!toEval)
     throw ('Nothing to eval :c');
+  if(toEval.search(/[^0-9+*\-]/) != -1)
+    throw ('lol you cant send anything else ahah')
   return Math.floor(eval(toEval));
 }

@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0022e32b-a9c1-4453-aad4-e188b9c6d42c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/helpers/DiceHelper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/roll_dice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/cmds.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/cmds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/handlers/CmdHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/CmdHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/DiceHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/DiceHelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/roll_dice.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/roll_dice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,7 @@
       <workItem from="1607423370455" duration="3410000" />
       <workItem from="1607426998842" duration="2299000" />
       <workItem from="1607773632173" duration="2114000" />
-      <workItem from="1607775764486" duration="16425000" />
+      <workItem from="1607775764486" duration="19571000" />
     </task>
     <servers />
   </component>
