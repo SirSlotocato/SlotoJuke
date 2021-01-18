@@ -44,8 +44,8 @@ export class cmds{
     static GetPrefixes(){
         debug('get prefixes');
         return {
-            normal_prefix: "?",
-            admin_prefix: "/"
+            normal_prefix: "/",
+            admin_prefix: "?"
         };
     }
 
