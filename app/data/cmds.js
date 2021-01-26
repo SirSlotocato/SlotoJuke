@@ -1,3 +1,20 @@
+import debugFactory from "debug";
+
+const debug = debugFactory('sj:data:cmd');
+
+const userCmds = {
+    add_song: ['play', 'p', 'PORCODIOCOMECAZZOTIPERMETTIANONMETTERESTACANZONE'],
+    remove_song: ['remove'],
+    add_next: ['play-after', 'pf', 'p-f'],
+    skip: ['skip', 's'],
+    clear: ['clear', 'c'],
+    pause: ['pause'],
+    stop: ['stop'],
+    join: ['join', 'j'],
+    leave: ['leave', 'l'],
+    play_song: ['playn', 'pn'],
+    roll_dice: ['r']
+};
 
 /**
  * A class containing all the cmds data.
@@ -5,49 +22,36 @@
 export class cmds{
     
     static GetExactUserCommand(toCheck){
-        console.log('get exact user command');
-        let cmds = this.GetUsers();
+        debug('get exact user command');
+        let cmdList = cmds.GetUsers();
         let toRet;
-        let ar = Object.keys(cmds).map(el => {
-            let ar = cmds[el].map(cmd => {
+        Object.keys(cmdList).forEach(el => {
+            cmdList[el].forEach(cmd => {
                 if(cmd == toCheck){
                     let toReturn = {
                         cmdType: el,
                         cmd: cmd
                     };
                     toRet = toReturn;
-                    console.log('toReturn: ' + JSON.stringify(toReturn));
                     return toReturn;
                 }
             });
         });
-        console.log(toRet)
         return toRet;
 
     }
 
     static GetPrefixes(){
-        console.log('get prefixes');
+        debug('get prefixes');
         return {
-            normal_prefix: "?",
-            admin_prefix: "/"
+            normal_prefix: "/",
+            admin_prefix: "?"
         };
     }
 
     static GetUsers(){
-        console.log('get users');
-        return {
-            add_song: ['play', 'p', 'PORCODIOCOMECAZZOTIPERMETTIANONMETTERESTACANZONE'],
-            remove_song: ['remove', 'r'],
-            add_next: ['play-after', 'pf', 'p-f'],
-            skip: ['skip', 's'],
-            clear: ['clear', 'c'],
-            pause: ['pause'],
-            stop: ['stop'],
-            join: ['join', 'j'],
-            leave: ['leave', 'l'],
-            play_song: ['playn', 'pn']
-        };
+        debug('get users');
+        return userCmds;
     }
 
     static GetAdmin(){
