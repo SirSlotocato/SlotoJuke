@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const debug = require('debug')('sj:main');
 
 const client = new Discord.Client();
-client.login(process.argv[2])
+client.login(process.env.BOT_TOKEN)
   .catch((err) => {
     if (err) console.error('LOGIN ERROR. REASON: ' + err);
   });
