@@ -1,10 +1,11 @@
 {
   "name": "slotojuke",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Discord music bot made by caneslotocato",
   "main": "serverStart.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serverStart.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +21,11 @@
     "@discordjs/opus": "^0.3.3",
     "async": "^3.2.0",
     "debug": "^4.3.1",
-    "discord.js": "^12.5.1",
+    "discord.js": "^12.5.3",
     "esm": "^3.2.25",
     "unique-random": "^2.1.0",
-    "youtube-search": "^1.1.4",
+    "youtube-search": "^1.1.6",
     "youtube-v3-api": "^1.1.1",
-    "ytdl-core": "^4.1.4"
+    "ytdl-core": "^4.8.3"
   }
 }
