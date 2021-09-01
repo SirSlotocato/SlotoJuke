@@ -19,31 +19,32 @@ export default class MusicHelper {
       return;
     }
     
-    for(let i = 0; i < song.length; i++){
-      try {
-        let dispatcher = await serverQueue.connection.play(await ytdl(song[i].link));
-        await dispatcher
-          .on('start', () => {
-            debug('start dispatcher');
-            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-            message.channel.send('```' + 'now playing: ' + song[i].title + '```');
-          })
-          .on('finish', () => {
-            debug('music finished');
+    try {
+      let dispatcher = await serverQueue.connection.play(await ytdl(song.link));
+      await dispatcher
+        .on('start', () => {
+          debug('start dispatcher');
+          dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+          message.channel.send('```' + 'now playing: ' + song.title + '```');
+        })
+        .on('finish', () => {
+          debug('music finished');
+          skipToNextSong(message);
+        })
+        .on('error', error => {
+          if (nTry <= 10)
+            MusicHelper.play(message, guild, song, nTry++)
+          else
             skipToNextSong(message);
-            i = song.length + 1;
-          })
-          .on('error', error => {
-            if (nTry <= 10)
-              MusicHelper.play(message, guild, song, nTry++)
-            console.error(error);
-          })
-          .on('debug', info => {
-            debug('debug info: ' + info);
-          });
-      } catch(e) {
-        console.error(e);
-      }
+          console.error(error);
+          message.channel.send('error playing ' + song.title + '. Error: ```' + error + '```');
+        })
+        .on('debug', info => {
+          debug('debug info: ' + info);
+        });
+    } catch(e) {
+      debug(e);
+      console.error(e);
     }
     
   }
@@ -67,5 +68,6 @@ function skipToNextSong(message) {
   let serverQueue = queue.get(message.guild.id);
   serverQueue.songs.shift();
   queue.set(serverQueue, message.guild.id);
+  debug(serverQueue.songs[0]);
   MusicHelper.play(message, message.guild, serverQueue.songs[0]);
 }

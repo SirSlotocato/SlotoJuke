@@ -21,11 +21,18 @@
     "@discordjs/opus": "^0.3.3",
     "async": "^3.2.0",
     "debug": "^4.3.1",
+    "discord-youtube-api": "^0.1.0",
     "discord.js": "^12.5.3",
     "esm": "^3.2.25",
+    "google-auth-library": "^7.8.0",
+    "googleapis": "^85.0.0",
+    "node-fetch": "^2.6.1",
     "unique-random": "^2.1.0",
     "youtube-search": "^1.1.6",
+    "youtube-search-without-api-key": "^1.0.6",
     "youtube-v3-api": "^1.1.1",
-    "ytdl-core": "^4.8.3"
+    "ytdl-core": "^4.9.1",
+    "ytpl": "^2.2.3",
+    "ytsr": "^3.5.3"
   }
 }

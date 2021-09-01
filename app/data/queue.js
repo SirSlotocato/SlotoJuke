@@ -25,9 +25,11 @@ export default class queue {
     return queues[id];
   }
 
-  static addSongToQueue(song, qId){
+  static add(song, qId){
     let queueToChange = queue.get(qId);
     let projectedSong = {title: song.title, link: song.link};
+    if(!projectedSong.title || !projectedSong.link)
+      throw new ReferenceError("no data")
     queueToChange.songs.push(projectedSong);
     return queue.set(queueToChange, qId);
   }

@@ -5,14 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\server.js",
-            "args": ["NjU3NTU3NDU1MzQwODMwNzIw.XgCnXw.vxub3pjHEC0gjJTAecH_xQhpPQI", "AIzaSyD3yT3MXYztcj6vUlN7JnVMFzrv2Z6NGUk"]
+            "name": "launch in docker",
+            "type": "docker",
+            //"program": "${workspaceFolder}\\server.js",
+            //"preLaunchTask": "Run Docker Container",
+            "dockerRun": {
+                "env": {
+                    "YTAPIKEY": "AIzaSyCXkQOud9i_av910WUoJliN51oo30wMXd8",
+                    "BOT_TOKEN": "NjU3NTU3NDU1MzQwODMwNzIw.Xfy8Gg.-QB8ysUZ_U_QIBtW-55pCCHab8U"
+                },
+                //"command": "node --inspect=0.0.0.0:9229 main.js"
+            },
+            "platform": "node"
         }
     ]
 }
