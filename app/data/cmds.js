@@ -11,9 +11,10 @@ const userCmds = {
     pause: ['pause'],
     stop: ['stop'],
     join: ['join', 'j'],
-    leave: ['leave', 'l'],
+    leave: ['leave'],
     play_song: ['playn', 'pn'],
-    roll_dice: ['r']
+    roll_dice: ['r'],
+    loop: ['l', 'loop']
 };
 
 /**

@@ -66,7 +66,8 @@ export default class MusicHelper {
 
 function skipToNextSong(message) {
   let serverQueue = queue.get(message.guild.id);
-  serverQueue.songs.shift();
+  if(!serverQueue.loop)
+    serverQueue.songs.shift();
   queue.set(serverQueue, message.guild.id);
   debug(serverQueue.songs[0]);
   MusicHelper.play(message, message.guild, serverQueue.songs[0]);
