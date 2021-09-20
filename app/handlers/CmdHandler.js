@@ -4,6 +4,7 @@ import leave from "../user/leave";
 import add_song from "../user/add_song";
 import skip from "../user/skip";
 import roll_dice from "../user/roll_dice";
+import loop from "../user/loop";
 
 import debugFactory from "debug";
 
@@ -18,6 +19,7 @@ let modules = {
     leave: leave,
     add_song: add_song,
     skip: skip,
+    loop: loop,
     roll_dice: roll_dice
 }
 
