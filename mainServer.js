@@ -1,5 +1,11 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
+import { MongoClient } from 'mongodb';
+
+
+
+//const Discord = require('discord.js');
 const debug = require('debug')('sj:main');
+
 
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN)
@@ -34,3 +40,8 @@ client.on('message', async message => {
 });
 
 
+async function dbConnect(dbUrl) {
+
+  let client = await MongoClient.connect(dbUrl);
+
+}

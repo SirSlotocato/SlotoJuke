@@ -37,7 +37,7 @@ export default class DiceHelper {
           else
             _rndGenerator = rndUnique(1, _noTimeToThrow);
           for(let i = 0; i < _timeToThrow; i++){
-            _preparedDice += "+" + RndInt(0, 0, _rndGenerator);
+            _preparedDice += "+" + DiceHelper.RndInt(0, 0, _rndGenerator);
           }
           let _support = noSpace.replace(dice, "(" + _preparedDice.substr(1) + ")");
           noSpace = _support;
@@ -58,7 +58,7 @@ export default class DiceHelper {
   
     async.forEachOf(dices, (dice, key, callback) => {
       try {
-        let _calculated = RndInt(1, parseInt(dice.replace(regex.D, ''), 10));
+        let _calculated = DiceHelper.RndInt(1, parseInt(dice.replace(regex.D, ''), 10));
         let _support = noSpace.replace(dice, _calculated);
         noSpace = _support;
       } catch (e) {
@@ -73,18 +73,18 @@ export default class DiceHelper {
     return noSpace + ' = ' + EVAL(noSpace);
   
   }
-
+  
+  static RndInt(min, max, rndGen) {
+    if (!rndGen) {
+      let rnd = rndUnique(min, max);
+      return Math.floor(rnd());
+    }
+    else {
+      return Math.floor(rndGen());
+    }
+  }
 }
 
-function RndInt(min, max, rndGen) {
-  if (!rndGen) {
-    let rnd = rndUnique(min, max);
-    return Math.floor(rnd());
-  }
-  else {
-    return Math.floor(rndGen());
-  }
-}
 
 function EVAL(toEval){
   if(!toEval)
